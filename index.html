@@ -1,1 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asi@Connect - A Digital Bridge Across Asia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #003399 0%, #0066cc 100%);
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ff6b9d;stop-opacity:0.1" /><stop offset="50%" style="stop-color:%23ffa726;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%237b1fa2;stop-opacity:0.1" /></linearGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23grad1)"/><circle cx="300" cy="150" r="60" fill="url(%23grad1)"/><circle cx="800" cy="80" r="100" fill="url(%23grad1)"/><circle cx="1000" cy="200" r="70" fill="url(%23grad1)"/></svg>') no-repeat;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .eu-logo {
+            height: 40px;
+        }
+
+        .asiaconnect-logo {
+            height: 50px;
+        }
+
+        .tein-logo-img {
+            height: 45px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(255, 167, 38, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003399 0%, #7b1fa2 50%, #ff6b9d 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(123, 31, 162, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 107, 157, 0.2) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ffa726, #ff6b9d);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 167, 38, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 167, 38, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #003399;
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #003399;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ffa726, #7b1fa2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ffa726, #ff6b9d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #003399;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #7b1fa2, #003399);
+            color: white;
+        }
+
+        .partners-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .partner-logo:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .partner-logo img {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #ffa726;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section li {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffa726;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .description {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features {
+                padding: 60px 0;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-bg"></div>
+        <nav>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="logo-section">
+                        <img src="images/logos/eu-logo.png" alt="European Union" class="logo-img eu-logo">
+                        <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo-img asiaconnect-logo">
+                        <img src="images/logos/tein-logo.png" alt="TEIN CC" class="logo-img tein-logo-img">
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#wp2">WP2</a></li>
+                        <li><a href="#wp3">WP3</a></li>
+                        <li><a href="#wp4">WP4</a></li>
+                        <li><a href="#wp5">WP5</a></li>
+                        <li><a href="#wp6">WP6</a></li>
+                        <li><a href="#more">More</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>A DIGITAL BRIDGE<br>ACROSS ASIA</h1>
+                <p class="subtitle">THE VISION AND IMPACT OF Asi@Connect</p>
+                <p class="description">
+                    Connecting Asia through advanced digital infrastructure, fostering collaboration, 
+                    innovation, and knowledge sharing across the continent. Building bridges that 
+                    transcend borders and unite communities through technology.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#learn-more" class="btn btn-primary">Explore Our Mission</a>
+                    <a href="#partners" class="btn btn-secondary">Meet Our Partners</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transforming Digital Connectivity</h2>
+                <p>Asi@Connect is revolutionizing how Asia connects, collaborates, and innovates through cutting-edge digital infrastructure and partnerships.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card floating">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Digital Infrastructure</h3>
+                    <p>Building robust, scalable digital networks that connect research institutions, universities, and innovation hubs across Asia.</p>
+                </div>
+                <div class="feature-card floating" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Cross-Border Collaboration</h3>
+                    <p>Facilitating seamless cooperation between Asian countries, enabling knowledge transfer and joint research initiatives.</p>
+                </div>
+                <div class="feature-card floating" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">💡</div>
+                    <h3>Innovation Hub</h3>
+                    <p>Creating a platform for innovative solutions, supporting startups, researchers, and entrepreneurs across the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Our Partners</h2>
+                <p style="color: rgba(255,255,255,0.8);">Working together with leading organizations to build Asia's digital future</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union">
+                </div>
+                <div class="partner-logo">
+                    <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect">
+                </div>
+                <div class="partner-logo">
+                    <img src="images/logos/tein-logo.png" alt="TEIN CC">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Asi@Connect</h3>
+                    <p>Building digital bridges across Asia, connecting communities, fostering innovation, and enabling collaboration through advanced telecommunications infrastructure.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#news">News & Updates</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Work Packages</h3>
+                    <ul>
+                        <li><a href="#wp2">WP2 - Infrastructure</a></li>
+                        <li><a href="#wp3">WP3 - Collaboration</a></li>
+                        <li><a href="#wp4">WP4 - Innovation</a></li>
+                        <li><a href="#wp5">WP5 - Research</a></li>
+                        <li><a href="#wp6">WP6 - Outreach</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@asiaconnect.org<br>
+                    Phone: +1 (555) 123-4567<br>
+                    Address: Digital Bridge HQ<br>
+                    Innovation District, Asia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Asi@Connect. Funded by the European Union. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .partner-logo').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
