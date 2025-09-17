@@ -382,14 +382,57 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 20px;
+            }
+            
+            .nav-menu li a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 gap: 20px;
             }
 
+            .logo-section {
+                justify-content: center;
+                gap: 15px;
+                padding: 8px 15px;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .eu-logo {
+                height: 35px;
+            }
+
+            .asiaconnect-logo {
+                height: 40px;
+            }
+
+            .tein-logo-img {
+                height: 38px;
+            }
+
             .nav-menu {
                 justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 80px 0;
             }
 
             .hero h1 {
@@ -402,11 +445,13 @@
 
             .hero .description {
                 font-size: 1rem;
+                padding: 0 10px;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
 
             .btn {
@@ -415,31 +460,108 @@
                 text-align: center;
             }
 
+            .features {
+                padding: 80px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .partners-grid {
                 flex-direction: column;
                 gap: 30px;
             }
+
+            .partner-logo {
+                min-width: auto;
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu li a {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+
             .hero {
                 padding: 60px 0;
             }
 
             .hero h1 {
                 font-size: 2rem;
+                line-height: 1.1;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero .description {
+                font-size: 0.95rem;
             }
 
             .features {
                 padding: 60px 0;
             }
 
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+
             .feature-card {
                 padding: 30px 20px;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .partners {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
@@ -467,6 +589,22 @@
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out;
         }
+
+        /* Smooth transitions for all interactive elements */
+        a, button {
+            transition: all 0.3s ease;
+        }
+
+        /* Better mobile touch targets */
+        @media (max-width: 768px) {
+            .nav-menu li a,
+            .btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -486,7 +624,7 @@
                         <li><a href="https://wp2.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP2</a></li>
                         <li><a href="http://wp3.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP3</a></li>
                         <li><a href="http://wp4.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP4</a></li>
-                        <li><a href="#wp5">WP5</a></li>
+                        <li><a href="https://wp5.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP5</a></li>
                         <li><a href="#wp6">WP6</a></li>
                         <li><a href="#more">More</a></li>
                     </ul>
@@ -586,7 +724,7 @@
                         <li><a href="https://wp2.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP2 - Infrastructure</a></li>
                         <li><a href="http://wp3.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP3 - Collaboration</a></li>
                         <li><a href="http://wp4.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP4 - Innovation</a></li>
-                        <li><a href="#wp5">WP5 - Research</a></li>
+                        <li><a href="https://wp5.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP5 - Research</a></li>
                         <li><a href="#wp6">WP6 - Outreach</a></li>
                     </ul>
                 </div>
@@ -641,6 +779,15 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Mobile menu toggle functionality (if needed in future)
+        const navMenu = document.querySelector('.nav-menu');
+        const navContainer = document.querySelector('.nav-container');
+        
+        // Add mobile-friendly touch handling
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
     </script>
 </body>
 </html>
