@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asi@Connect - A Digital Bridge Across Asia</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="manifest" href="images/site.webmanifest">
-    
-    <!-- Alternative: Inline SVG favicon for immediate use -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23003399'/><circle cx='50' cy='50' r='35' fill='%23ffa726'/><text x='50' y='58' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'>A</text></svg>">
     
     <style>
@@ -35,7 +27,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #003399 0%, #0066cc 100%);
             color: white;
@@ -124,7 +115,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #003399 0%, #7b1fa2 50%, #ff6b9d 100%);
             color: white;
@@ -214,7 +204,6 @@
             transform: translateY(-3px);
         }
 
-        /* Features Section */
         .features {
             padding: 100px 0;
             background: linear-gradient(to bottom, #f8f9fa, #ffffff);
@@ -295,22 +284,82 @@
             line-height: 1.6;
         }
 
-        /* Partners Section */
         .partners {
             padding: 80px 0;
             background: linear-gradient(135deg, #7b1fa2, #003399);
             color: white;
         }
 
-        .partners-grid {
+        .partners-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .network-partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .partner-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-height: 180px;
+            justify-content: center;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .partner-flag {
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        .partner-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #003399;
+            text-align: center;
+        }
+
+        .partner-country {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .main-partners-section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-partners-grid {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 60px;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
-        .partner-logo {
+        .main-partner-logo {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -324,18 +373,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .partner-logo:hover {
+        .main-partner-logo:hover {
             background: rgba(255, 255, 255, 1);
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .partner-logo img {
+        .main-partner-logo img {
             height: 60px;
             width: auto;
         }
 
-        /* Footer */
         footer {
             background: #1a1a1a;
             color: white;
@@ -381,191 +429,36 @@
             color: #999;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .nav-menu {
-                gap: 20px;
-            }
-            
-            .nav-menu li a {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .logo-section {
-                justify-content: center;
-                gap: 15px;
-                padding: 8px 15px;
-            }
-
-            .logo-img {
-                height: 40px;
-            }
-
-            .eu-logo {
-                height: 35px;
-            }
-
-            .asiaconnect-logo {
-                height: 40px;
-            }
-
-            .tein-logo-img {
-                height: 38px;
-            }
-
-            .nav-menu {
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .nav-menu li a {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 80px 0;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero .subtitle {
-                font-size: 1.2rem;
+            .network-partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 20px;
             }
 
-            .hero .description {
+            .partner-card {
+                padding: 20px;
+                min-height: 150px;
+            }
+
+            .partner-flag {
+                width: 50px;
+                height: 33px;
+            }
+
+            .partner-name {
                 font-size: 1rem;
-                padding: 0 10px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .features {
-                padding: 80px 0;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .partners-grid {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .partner-logo {
-                min-width: auto;
-                width: 100%;
-                max-width: 300px;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .logo-section {
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px;
-            }
-
-            .nav-menu {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-            }
-
-            .nav-menu li {
-                width: 100%;
-            }
-
-            .nav-menu li a {
-                display: block;
-                text-align: center;
-                width: 100%;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.1;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero .description {
-                font-size: 0.95rem;
-            }
-
-            .features {
-                padding: 60px 0;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .section-title p {
-                font-size: 1rem;
-            }
-
-            .feature-card {
-                padding: 30px 20px;
-            }
-
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-
-            .feature-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .partners {
-                padding: 60px 0;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -589,26 +482,9 @@
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out;
         }
-
-        /* Smooth transitions for all interactive elements */
-        a, button {
-            transition: all 0.3s ease;
-        }
-
-        /* Better mobile touch targets */
-        @media (max-width: 768px) {
-            .nav-menu li a,
-            .btn {
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-bg"></div>
         <nav>
@@ -620,20 +496,19 @@
                         <img src="images/logos/tein-logo.png" alt="TEIN CC" class="logo-img tein-logo-img">
                     </div>
                     <ul class="nav-menu">
-                        <li><a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer">About</a></li>
-                        <li><a href="https://wp2.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP2</a></li>
-                        <li><a href="http://wp3.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP3</a></li>
-                        <li><a href="http://wp4.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP4</a></li>
-                        <li><a href="https://wp5.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP5</a></li>
-                        <li><a href="http://wp6.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP6</a></li>
-                        <li><a href="https://targetcall.asiaconnect.online/" target="_blank" rel="noopener noreferrer">Targeted Call</a></li>
+                        <li><a href="http://about.asiaconnect.online/" target="_blank">About</a></li>
+                        <li><a href="https://wp2.asiaconnect.online/" target="_blank">WP2</a></li>
+                        <li><a href="http://wp3.asiaconnect.online/" target="_blank">WP3</a></li>
+                        <li><a href="http://wp4.asiaconnect.online/" target="_blank">WP4</a></li>
+                        <li><a href="https://wp5.asiaconnect.online/" target="_blank">WP5</a></li>
+                        <li><a href="http://wp6.asiaconnect.online/" target="_blank">WP6</a></li>
+                        <li><a href="https://targetcall.asiaconnect.online/" target="_blank">Targeted Call</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="container">
@@ -653,7 +528,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features" id="learn-more">
         <div class="container">
             <div class="section-title">
@@ -680,28 +554,179 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
     <section class="partners" id="partners">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: white;">Our Partners</h2>
-                <p style="color: rgba(255,255,255,0.8);">Working together with leading organizations to build Asia's digital future</p>
+        <div class="partners-container">
+            <div class="main-partners-section">
+                <div class="section-title">
+                    <h2 style="color: white;">Our Strategic Partners</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Supported by leading international organizations</p>
+                </div>
+                <div class="main-partners-grid">
+                    <div class="main-partner-logo">
+                        <img src="images/logos/eu-logo.png" alt="European Union">
+                    </div>
+                    <div class="main-partner-logo">
+                        <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect">
+                    </div>
+                    <div class="main-partner-logo">
+                        <img src="images/logos/tein-logo.png" alt="TEIN CC">
+                    </div>
+                </div>
             </div>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <img src="images/logos/eu-logo.png" alt="European Union">
+
+            <div class="section-title">
+                <h2 style="color: white;">Network Partners Across Asia-Pacific</h2>
+                <p style="color: rgba(255,255,255,0.8);">Connecting research and education networks from 20+ countries</p>
+            </div>
+            
+            <div class="network-partners-grid">
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/au.png" alt="Australia Flag" class="partner-flag">
+                    <div class="partner-name">AARNet</div>
+                    <div class="partner-country">Australia</div>
                 </div>
-                <div class="partner-logo">
-                    <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect">
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/bd.png" alt="Bangladesh Flag" class="partner-flag">
+                    <div class="partner-name">BdREN</div>
+                    <div class="partner-country">Bangladesh</div>
                 </div>
-                <div class="partner-logo">
-                    <img src="images/logos/tein-logo.png" alt="TEIN CC">
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/bt.png" alt="Bhutan Flag" class="partner-flag">
+                    <div class="partner-name">GovTech</div>
+                    <div class="partner-country">Bhutan</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/cn.png" alt="China Flag" class="partner-flag">
+                    <div class="partner-name">CERNET</div>
+                    <div class="partner-country">China</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/cn.png" alt="China Flag" class="partner-flag">
+                    <div class="partner-name">CSTNET</div>
+                    <div class="partner-country">China</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/hk.png" alt="Hong Kong Flag" class="partner-flag">
+                    <div class="partner-name">HARNET</div>
+                    <div class="partner-country">Hong Kong</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/id.png" alt="Indonesia Flag" class="partner-flag">
+                    <div class="partner-name">ITB/INHERENT</div>
+                    <div class="partner-country">Indonesia</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/in.png" alt="India Flag" class="partner-flag">
+                    <div class="partner-name">NKN</div>
+                    <div class="partner-country">India</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan Flag" class="partner-flag">
+                    <div class="partner-name">NICT</div>
+                    <div class="partner-country">Japan</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan Flag" class="partner-flag">
+                    <div class="partner-name">NII</div>
+                    <div class="partner-country">Japan</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/my.png" alt="Malaysia Flag" class="partner-flag">
+                    <div class="partner-name">MAFFIN</div>
+                    <div class="partner-country">Malaysia</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/my.png" alt="Malaysia Flag" class="partner-flag">
+                    <div class="partner-name">MYREN</div>
+                    <div class="partner-country">Malaysia</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/mv.png" alt="Maldives Flag" class="partner-flag">
+                    <div class="partner-name">ITC</div>
+                    <div class="partner-country">Maldives</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/mn.png" alt="Mongolia Flag" class="partner-flag">
+                    <div class="partner-name">ErdemNet</div>
+                    <div class="partner-country">Mongolia</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/np.png" alt="Nepal Flag" class="partner-flag">
+                    <div class="partner-name">NREN</div>
+                    <div class="partner-country">Nepal</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/nz.png" alt="New Zealand Flag" class="partner-flag">
+                    <div class="partner-name">REANNZ</div>
+                    <div class="partner-country">New Zealand</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/ph.png" alt="Philippines Flag" class="partner-flag">
+                    <div class="partner-name">ASTI</div>
+                    <div class="partner-country">Philippines</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/pk.png" alt="Pakistan Flag" class="partner-flag">
+                    <div class="partner-name">PERN</div>
+                    <div class="partner-country">Pakistan</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/kr.png" alt="South Korea Flag" class="partner-flag">
+                    <div class="partner-name">NIA</div>
+                    <div class="partner-country">South Korea</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/lk.png" alt="Sri Lanka Flag" class="partner-flag">
+                    <div class="partner-name">LERNET</div>
+                    <div class="partner-country">Sri Lanka</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/lk.png" alt="Sri Lanka Flag" class="partner-flag">
+                    <div class="partner-name">LEARN</div>
+                    <div class="partner-country">Sri Lanka</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/sg.png" alt="Singapore Flag" class="partner-flag">
+                    <div class="partner-name">SingAREN</div>
+                    <div class="partner-country">Singapore</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/th.png" alt="Thailand Flag" class="partner-flag">
+                    <div class="partner-name">ThaiREN</div>
+                    <div class="partner-country">Thailand</div>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/vn.png" alt="Vietnam Flag" class="partner-flag">
+                    <div class="partner-name">VinaREN</div>
+                    <div class="partner-country">Vietnam</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -712,7 +737,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                        <li><a href="http://about.asiaconnect.online/" target="_blank">About Us</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#news">News & Updates</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -721,11 +746,11 @@
                 <div class="footer-section">
                     <h3>Work Packages</h3>
                     <ul>
-                        <li><a href="https://wp2.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP2 - Infrastructure</a></li>
-                        <li><a href="http://wp3.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP3 - Collaboration</a></li>
-                        <li><a href="http://wp4.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP4 - Innovation</a></li>
-                        <li><a href="https://wp5.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP5 - Research</a></li>
-                        <li><a href="http://wp6.asiaconnect.online/" target="_blank" rel="noopener noreferrer">WP6 - Outreach</a></li>
+                        <li><a href="https://wp2.asiaconnect.online/" target="_blank">WP2 - Infrastructure</a></li>
+                        <li><a href="http://wp3.asiaconnect.online/" target="_blank">WP3 - Collaboration</a></li>
+                        <li><a href="http://wp4.asiaconnect.online/" target="_blank">WP4 - Innovation</a></li>
+                        <li><a href="https://wp5.asiaconnect.online/" target="_blank">WP5 - Research</a></li>
+                        <li><a href="http://wp6.asiaconnect.online/" target="_blank">WP6 - Outreach</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -743,7 +768,6 @@
     </footer>
 
     <script>
-        // Add smooth scrolling for internal links only
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -757,7 +781,6 @@
             });
         });
 
-        // Add scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -772,19 +795,13 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.feature-card, .partner-logo').forEach(el => {
+        document.querySelectorAll('.feature-card, .partner-card, .main-partner-logo').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
 
-        // Mobile menu toggle functionality (if needed in future)
-        const navMenu = document.querySelector('.nav-menu');
-        const navContainer = document.querySelector('.nav-container');
-        
-        // Add mobile-friendly touch handling
         if ('ontouchstart' in window) {
             document.body.classList.add('touch-device');
         }
