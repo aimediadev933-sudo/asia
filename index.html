@@ -116,7 +116,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #003399 0%, #7b1fa2 50%, #ff6b9d 100%);
+            background: linear-gradient(135deg, rgba(0, 51, 153, 0.9) 0%, rgba(123, 31, 162, 0.85) 50%, rgba(255, 107, 157, 0.85) 100%);
             color: white;
             padding: 100px 0;
             position: relative;
@@ -129,10 +129,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(123, 31, 162, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 107, 157, 0.2) 0%, transparent 50%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700"><defs><linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.15"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0.05"/></linearGradient></defs><g opacity="0.25"><path d="M 200 150 L 250 120 L 300 140 L 320 100 L 380 110 L 420 90 L 480 120 L 520 100 L 580 130 L 620 110 L 680 140 L 720 120 L 780 150 L 820 130 L 880 160 L 920 140 L 980 170 L 1020 150 L 1080 180 L 1120 160 L 1160 190 L 1180 170 L 1200 200 L 1180 240 L 1200 280 L 1180 320 L 1150 360 L 1120 400 L 1080 420 L 1040 450 L 1000 470 L 960 490 L 920 510 L 880 520 L 840 510 L 800 490 L 760 470 L 720 480 L 680 460 L 640 450 L 600 440 L 560 450 L 520 460 L 480 450 L 440 440 L 400 450 L 360 460 L 320 450 L 280 440 L 240 430 L 200 420 L 180 380 L 160 340 L 150 300 L 140 260 L 150 220 L 170 180 Z" fill="url(%23mapGrad)" stroke="%23ffffff" stroke-width="2"/><circle cx="400" cy="280" r="8" fill="%23ffa726" opacity="0.8"/><circle cx="650" cy="250" r="8" fill="%23ffa726" opacity="0.8"/><circle cx="850" cy="300" r="8" fill="%23ffa726" opacity="0.8"/><circle cx="500" cy="350" r="8" fill="%23ffa726" opacity="0.8"/><circle cx="750" cy="380" r="8" fill="%23ffa726" opacity="0.8"/><circle cx="950" cy="280" r="8" fill="%23ffa726" opacity="0.8"/><line x1="400" y1="280" x2="650" y2="250" stroke="%23ffffff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/><line x1="650" y1="250" x2="850" y2="300" stroke="%23ffffff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/><line x1="400" y1="280" x2="500" y2="350" stroke="%23ffffff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/><line x1="650" y1="250" x2="750" y2="380" stroke="%23ffffff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/><line x1="850" y1="300" x2="950" y2="280" stroke="%23ffffff" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,5"/></g><g opacity="0.15"><circle cx="250" cy="200" r="100" fill="%23ff6b9d"/><circle cx="1100" cy="250" r="120" fill="%23ffa726"/><circle cx="600" cy="500" r="90" fill="%237b1fa2"/><circle cx="950" cy="450" r="80" fill="%23ff6b9d"/></g></svg>');
+            background-size: cover;
+            background-position: center right;
+            opacity: 0.3;
         }
 
         .hero-content {
@@ -764,7 +764,7 @@
                     <p>TEIN Cooperation Center (TEIN*CC)<br>
                     Seoul, Republic of Korea<br>
                     Email: info@tein.asia<br>
-                    Web:https://asiaconnect.online/</p>
+                    Web: https://asiaconnect.online/</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -801,4 +801,9 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .partner-car
+        document.querySelectorAll('.feature-card, .partner-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
