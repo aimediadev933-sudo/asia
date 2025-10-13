@@ -90,13 +90,106 @@
             gap: 20px;
         }
 
-        .logo {
-            font-size: 1.8rem;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,167,38,0.2);
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 8px rgba(255,167,38,0.3));
+        }
+
+        .logo-img:hover {
+            transform: scale(1.1);
+        }
+
+        .eu-logo {
+            height: 40px;
+        }
+
+        .asiaconnect-logo {
+            height: 45px;
+        }
+
+        .tein-logo-img {
+            height: 42px;
+        }
+
+        .custom-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, rgba(255,167,38,0.2), rgba(255,107,157,0.2));
+            border-radius: 15px;
+            border: 2px solid rgba(255,167,38,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .custom-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,167,38,0.4);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #003399, #0066cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: rotateLogo 10s linear infinite;
+        }
+
+        @keyframes rotateLogo {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ffa726, #ff6b9d);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .logo-icon::after {
+            content: 'A';
+            position: absolute;
+            font-size: 20px;
             font-weight: bold;
-            background: linear-gradient(135deg, #ffa726, #ff6b9d, #7b1fa2);
+            color: white;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffa726, #ff6b9d, #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: glow 3s ease-in-out infinite;
+            letter-spacing: 1px;
+        }
+
+        .logo-at {
+            color: #ffa726;
+            font-size: 1.6rem;
         }
 
         @keyframes glow {
@@ -599,13 +692,23 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">Asi@Connect</div>
+            <div class="logo-section">
+                <div class="custom-logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">Asi<span class="logo-at">@</span>Connect</div>
+                </div>
+                <img src="images/logos/eu-logo.png" alt="European Union" class="logo-img eu-logo">
+                <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo-img asiaconnect-logo">
+                <img src="images/logos/tein-logo.png" alt="TEIN CC" class="logo-img tein-logo-img">
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#network">Network</a></li>
-                <li><a href="#partners">Partners</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="http://about.asiaconnect.online/" target="_blank">About</a></li>
+                <li><a href="https://wp2.asiaconnect.online/" target="_blank">WP2</a></li>
+                <li><a href="http://wp3.asiaconnect.online/" target="_blank">WP3</a></li>
+                <li><a href="http://wp4.asiaconnect.online/" target="_blank">WP4</a></li>
+                <li><a href="https://wp5.asiaconnect.online/" target="_blank">WP5</a></li>
+                <li><a href="http://wp6.asiaconnect.online/" target="_blank">WP6</a></li>
+                <li><a href="https://targetcall.asiaconnect.online/" target="_blank">Targeted Call</a></li>
             </ul>
         </div>
     </nav>
