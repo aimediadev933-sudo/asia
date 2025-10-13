@@ -87,8 +87,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
         }
 
         .logo-section {
@@ -200,9 +199,11 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
             flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         .nav-links a {
@@ -682,7 +683,14 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-links { gap: 15px; }
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-links { 
+                gap: 15px;
+                justify-content: center;
+            }
             .network-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
         }
