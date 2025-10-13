@@ -209,6 +209,64 @@
             background: linear-gradient(to bottom, #f8f9fa, #ffffff);
         }
 
+        .network-topology {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff, #f0f4f8);
+        }
+
+        .topology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .topology-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .topology-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .topology-card h3 {
+            font-size: 1.5rem;
+            color: #003399;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .topology-image-container {
+            width: 100%;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .topology-image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .topology-card p {
+            color: #666;
+            line-height: 1.8;
+            text-align: center;
+        }
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -463,6 +521,16 @@
                 font-size: 2.5rem;
             }
 
+            .topology-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .topology-image-container {
+                min-height: 300px;
+                padding: 15px;
+            }
+
             .network-partners-grid {
                 gap: 20px;
             }
@@ -573,6 +641,31 @@
                     <div class="feature-icon">💡</div>
                     <h3>Innovation Hub</h3>
                     <p>Creating a platform for innovative solutions, supporting startups, researchers, and entrepreneurs across the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="network-topology">
+        <div class="container">
+            <div class="section-title">
+                <h2>Network Infrastructure Map</h2>
+                <p>Our comprehensive network topology connecting major research and education institutions across Asia-Pacific</p>
+            </div>
+            <div class="topology-grid">
+                <div class="topology-card">
+                    <h3>South & Central Asia Network</h3>
+                    <div class="topology-image-container">
+                        <img src="images/network-map-1.png" alt="South and Central Asia Network Topology" class="topology-image">
+                    </div>
+                    <p>Connecting EU, Mongolia, Pakistan, India, Nepal, Bhutan, Bangladesh, Sri Lanka, Laos, Thailand, Malaysia, Singapore, Cambodia, and China with high-speed research networks.</p>
+                </div>
+                <div class="topology-card">
+                    <h3>East Asia & Pacific Network</h3>
+                    <div class="topology-image-container">
+                        <img src="images/network-map-2.png" alt="East Asia and Pacific Network Topology" class="topology-image">
+                    </div>
+                    <p>High-bandwidth connections linking Hong Kong, Taiwan, South Korea, Japan, Philippines, USA, Australia, and New Zealand through multiple redundant paths.</p>
                 </div>
             </div>
         </div>
