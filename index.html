@@ -297,10 +297,32 @@
         }
 
         .network-partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: flex;
             gap: 30px;
             margin-top: 50px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .network-partners-grid::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .network-partners-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .network-partners-grid::-webkit-scrollbar-thumb {
+            background: rgba(255, 167, 38, 0.6);
+            border-radius: 10px;
+        }
+
+        .network-partners-grid::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 167, 38, 0.8);
         }
 
         .partner-card {
@@ -314,7 +336,9 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             min-height: 180px;
+            min-width: 200px;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .partner-card:hover {
@@ -440,13 +464,13 @@
             }
 
             .network-partners-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                 gap: 20px;
             }
 
             .partner-card {
                 padding: 20px;
                 min-height: 150px;
+                min-width: 180px;
             }
 
             .partner-flag {
@@ -555,8 +579,7 @@
     </section>
 
     <section class="partners" id="partners">
-        
-
+        <div class="partners-container">
             <div class="section-title">
                 <h2 style="color: white;">Partners Across Asia-Pacific</h2>
                 <p style="color: rgba(255,255,255,0.8);">Connecting research and education networks from 20+ countries</p>
@@ -778,16 +801,4 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .partner-card, .main-partner-logo').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        if ('ontouchstart' in window) {
-            document.body.classList.add('touch-device');
-        }
-    </script>
-</body>
-</html>
+        document.querySelectorAll('.feature-card, .partner-car
