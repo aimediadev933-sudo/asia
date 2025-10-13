@@ -562,24 +562,64 @@
 
         .partners-scroll {
             margin-top: 60px;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             position: relative;
+            padding: 20px 0;
+            cursor: grab;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .partners-scroll:active {
+            cursor: grabbing;
+        }
+
+        .partners-scroll::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .partners-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin: 0 20px;
+        }
+
+        .partners-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #ffa726, #ff6b9d);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .partners-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(90deg, #ff6b9d, #ffa726);
         }
 
         .partners-track {
             display: flex;
             gap: 30px;
-            animation: scroll 30s linear infinite;
             width: max-content;
+            padding: 0 20px;
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .partners-track:hover {
-            animation-play-state: paused;
+        .scroll-arrow {
+            animation: slideArrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes slideArrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
         }
 
         .partner-card {
@@ -682,17 +722,122 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { 
+                font-size: 2.5rem; 
+                line-height: 1.2;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .hero .description {
+                font-size: 1rem;
+            }
             .nav-container {
                 flex-direction: column;
                 gap: 20px;
+                padding: 0 20px;
+            }
+            .logo-section {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+                padding: 15px;
+            }
+            .custom-logo {
+                width: 100%;
+                justify-content: center;
             }
             .nav-links { 
                 gap: 15px;
                 justify-content: center;
+                width: 100%;
             }
-            .network-grid { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
+            .nav-links li a {
+                font-size: 0.95rem;
+                padding: 8px 12px;
+            }
+            .network-grid { 
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .features-grid { 
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .section-title p {
+                font-size: 1rem;
+            }
+            .map-container {
+                height: 350px;
+            }
+            .feature-card {
+                padding: 40px 25px;
+            }
+            .btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .partners-track {
+                gap: 20px;
+            }
+            .partner-card {
+                min-width: 160px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .custom-logo {
+                padding: 6px 12px;
+            }
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+            .logo-icon::before {
+                width: 25px;
+                height: 25px;
+            }
+            .logo-icon::after {
+                font-size: 16px;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            .feature-icon {
+                font-size: 3rem;
+            }
+            .map-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -803,7 +948,7 @@
                 </div>
                 <div class="partner-card">
                     <img src="https://flagcdn.com/w160/sg.png" alt="Singapore" class="partner-flag">
-                    <div class="partner-name">SingAREN</div>
+                    <div class="partner-name">GovTech</div>
                     <div class="partner-country">Singapore</div>
                 </div>
                 <div class="partner-card">
@@ -812,9 +957,19 @@
                     <div class="partner-country">China</div>
                 </div>
                 <div class="partner-card">
-                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan" class="partner-flag">
-                    <div class="partner-name">NII</div>
-                    <div class="partner-country">Japan</div>
+                    <img src="https://flagcdn.com/w160/cn.png" alt="China" class="partner-flag">
+                    <div class="partner-name">CSTNET</div>
+                    <div class="partner-country">China</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/hk.png" alt="Hong Kong" class="partner-flag">
+                    <div class="partner-name">HARNET</div>
+                    <div class="partner-country">Hong Kong</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/id.png" alt="Indonesia" class="partner-flag">
+                    <div class="partner-name">ITB/INHERENT</div>
+                    <div class="partner-country">Indonesia</div>
                 </div>
                 <div class="partner-card">
                     <img src="https://flagcdn.com/w160/in.png" alt="India" class="partner-flag">
@@ -822,25 +977,69 @@
                     <div class="partner-country">India</div>
                 </div>
                 <div class="partner-card">
-                    <img src="https://flagcdn.com/w160/kr.png" alt="Korea" class="partner-flag">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan" class="partner-flag">
+                    <div class="partner-name">NICT</div>
+                    <div class="partner-country">Japan</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan" class="partner-flag">
+                    <div class="partner-name">NII</div>
+                    <div class="partner-country">Japan</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan" class="partner-flag">
+                    <div class="partner-name">MAFFIN</div>
+                    <div class="partner-country">Japan</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/my.png" alt="Malaysia" class="partner-flag">
+                    <div class="partner-name">MYREN</div>
+                    <div class="partner-country">Malaysia</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/kh.png" alt="Cambodia" class="partner-flag">
+                    <div class="partner-name">ITC</div>
+                    <div class="partner-country">Cambodia</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/mn.png" alt="Mongolia" class="partner-flag">
+                    <div class="partner-name">ErdemNet</div>
+                    <div class="partner-country">Mongolia</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/np.png" alt="Nepal" class="partner-flag">
+                    <div class="partner-name">NREN</div>
+                    <div class="partner-country">Nepal</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/nz.png" alt="New Zealand" class="partner-flag">
+                    <div class="partner-name">REANNZ</div>
+                    <div class="partner-country">New Zealand</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/ph.png" alt="Philippines" class="partner-flag">
+                    <div class="partner-name">ASTI</div>
+                    <div class="partner-country">Philippines</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/pk.png" alt="Pakistan" class="partner-flag">
+                    <div class="partner-name">PERN</div>
+                    <div class="partner-country">Pakistan</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/kr.png" alt="South Korea" class="partner-flag">
                     <div class="partner-name">NIA</div>
                     <div class="partner-country">South Korea</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/la.png" alt="Laos" class="partner-flag">
+                    <div class="partner-name">LERNET</div>
+                    <div class="partner-country">Laos</div>
                 </div>
                 <div class="partner-card">
                     <img src="https://flagcdn.com/w160/lk.png" alt="Sri Lanka" class="partner-flag">
                     <div class="partner-name">LEARN</div>
                     <div class="partner-country">Sri Lanka</div>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="partner-card">
-                    <img src="https://flagcdn.com/w160/au.png" alt="Australia" class="partner-flag">
-                    <div class="partner-name">AARNet</div>
-                    <div class="partner-country">Australia</div>
-                </div>
-                <div class="partner-card">
-                    <img src="https://flagcdn.com/w160/bd.png" alt="Bangladesh" class="partner-flag">
-                    <div class="partner-name">BdREN</div>
-                    <div class="partner-country">Bangladesh</div>
                 </div>
                 <div class="partner-card">
                     <img src="https://flagcdn.com/w160/sg.png" alt="Singapore" class="partner-flag">
@@ -848,11 +1047,21 @@
                     <div class="partner-country">Singapore</div>
                 </div>
                 <div class="partner-card">
-                    <img src="https://flagcdn.com/w160/cn.png" alt="China" class="partner-flag">
-                    <div class="partner-name">CERNET</div>
-                    <div class="partner-country">China</div>
+                    <img src="https://flagcdn.com/w160/th.png" alt="Thailand" class="partner-flag">
+                    <div class="partner-name">ThaiREN</div>
+                    <div class="partner-country">Thailand</div>
+                </div>
+                <div class="partner-card">
+                    <img src="https://flagcdn.com/w160/vn.png" alt="Vietnam" class="partner-flag">
+                    <div class="partner-name">VinaREN</div>
+                    <div class="partner-country">Vietnam</div>
                 </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-arrow">←</span>
+            <span>Scroll horizontally to see all partners</span>
+            <span class="scroll-arrow">→</span>
         </div>
     </section>
 
