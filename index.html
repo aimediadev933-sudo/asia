@@ -55,7 +55,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .logo-section {
@@ -95,8 +95,9 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .nav-menu li a {
@@ -107,6 +108,8 @@
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            white-space: nowrap;
         }
 
         .nav-menu li a:hover {
@@ -514,14 +517,85 @@
             color: #999;
         }
 
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 167, 38, 0.8);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu li a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .logo-section {
+                order: 1;
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+                order: 2;
+            }
+
+            .nav-menu {
+                order: 3;
+                width: 100%;
                 flex-direction: column;
-                gap: 20px;
+                gap: 10px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-menu.active {
+                max-height: 500px;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu li a {
+                display: block;
+                width: 100%;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .description {
+                font-size: 1rem;
             }
 
             .topology-grid {
@@ -590,7 +664,10 @@
                         <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo-img asiaconnect-logo">
                         <img src="images/logos/tein-logo.png" alt="TEIN CC" class="logo-img tein-logo-img">
                     </div>
-                    <ul class="nav-menu">
+                    
+                    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                    
+                    <ul class="nav-menu" id="navMenu">
                         <li><a href="http://about.asiaconnect.online/" target="_blank">About</a></li>
                         <li><a href="https://wp2.asiaconnect.online/" target="_blank">WP2</a></li>
                         <li><a href="http://wp3.asiaconnect.online/" target="_blank">WP3</a></li>
@@ -648,6 +725,7 @@
             </div>
         </div>
     </section>
+
     <section class="partners" id="partners">
         <div class="partners-container">
             <div class="section-title">
@@ -844,6 +922,13 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -853,10 +938,14 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('navMenu');
+                    navMenu.classList.remove('active');
                 }
             });
         });
 
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -877,4 +966,3 @@
     </script>
 </body>
 </html>
-
